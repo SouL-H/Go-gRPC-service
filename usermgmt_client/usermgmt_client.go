@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	pb "gRPC-Service/usermgmt"
 
 	"context"
@@ -42,4 +43,11 @@ func main() {
 		Age: %d
 		ID: %d`, r.GetName(), r.GetAge(), r.GetId())
 	}
+	params := &pb.GetUsersParams{}
+	r, err := c.GetUsers(ctx, params)
+	if err != nil {
+		log.Fatalf("could not get users: %v", err)
+	}
+	log.Print("\nUSER LIST:\n")
+	fmt.Printf("r.GetUsers(): %v\n", r.GetUsers())
 }
