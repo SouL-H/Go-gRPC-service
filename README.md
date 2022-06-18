@@ -42,5 +42,12 @@ go run usermgmt_server/usermgmt_server.go
 
 </p>
 
+## PostgreSQL Snapshot
 
-#### ...
+<p>
+    <img src="./img/postgres.png"  style="width:300px;" alt="Observer">
+
+</p>
+
+
+#### Moss
