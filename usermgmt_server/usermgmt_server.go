@@ -87,10 +87,12 @@ func (s *UserManagamentServer) GetUsers(ctx context.Context, in *pb.GetUsersPara
 
 func main() {
 	database_url := "postgres://postgres:***@localhost:5432/dbname"
+	//Create ctx
 	conn, err := pgx.Connect(context.Background(), database_url)
 	if err != nil {
 		log.Fatalf("Unable to establish connection to database: %v", err)
 	}
+	//Close server when ctx is done
 	defer conn.Close(context.Background())
 	var user_mgmt_server *UserManagamentServer = NewUserManagementServer()
 	user_mgmt_server.conn = conn

@@ -27,7 +27,8 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
 	var new_users = make(map[string]int32)
-	new_users["user1"] = 1
+	//dummy data
+	new_users["user1"] = 1  
 	new_users["user2"] = 2
 	new_users["user3"] = 3
 	new_users["user4"] = 4
@@ -44,6 +45,7 @@ func main() {
 		ID: %d`, r.GetName(), r.GetAge(), r.GetId())
 	}
 	params := &pb.GetUsersParams{}
+	//User get request
 	r, err := c.GetUsers(ctx, params)
 	if err != nil {
 		log.Fatalf("could not get users: %v", err)
